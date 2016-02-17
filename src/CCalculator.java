@@ -864,21 +864,6 @@ public class CCalculator extends javax.swing.JFrame {
     public void PAR16(double corrFactor) {
         double[] p = {0, 20, 25, 35, 50, 10000};
         double[] lm = {0, 90 * corrFactor, 125 * corrFactor, 200 * corrFactor, 300 * corrFactor, 10000};
-//        double p1 = 20;
-//        double lm1 = 90 * corrFactor;
-//        double p2 = 25;
-//        double lm2 = 125 * corrFactor;
-//        double p3 = 35;
-//        double lm3 = 200 * corrFactor;
-//        double p4 = 50;
-//        double lm4 = 300 * corrFactor;
-//        if (lumen() < lm1) {
-//            equwat = (int) Math.round(((p1 - 0) / (lm1 - 0)) * lumen() + (0 - (p1 - 0) / (lm1 - 0) * 0));
-//        } else if (lumen() >= lm1 && lumen() < lm2) {
-//            equwat = (int) Math.round(((p2 - p1) / (lm2 - lm1)) * lumen() + (p1 - (p2 - p1) / (lm2 - lm1) * lm1));
-//        } else if (lumen() >= lm2 && lumen() < lm3) {
-//            equwat = (int) Math.round(((p3 - p2) / (lm3 - lm2)) * lumen() + (p2 - (p3 - p2) / (lm3 - lm2) * lm2));
-//        }
 
         for (int i = 0; i < p.length; i += 1) {
             if (lumen() >= lm[i] && lumen() < lm[i + 1]) {
