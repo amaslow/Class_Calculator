@@ -881,17 +881,12 @@ public class CCalculator extends javax.swing.JFrame {
 //        }
 
         for (int i = 0; i < p.length; i += 1) {
-
             if (lumen() >= lm[i] && lumen() < lm[i + 1]) {
-                System.out.println(lm[i] + " =< " + lumen() + " < " + lm[i + 1]);
                 if (i == 0) {
-                    System.out.println("a = " + (p[i + 2] - p[i + 1]) / (lm[i + 2] - lm[i + 1]) + " , b = " + (p[i + 1] - ((p[i + 2] - p[i + 1]) / (lm[i + 2] - lm[i + 1])) * lm[i + 1]));
                     equwat = (int) Math.round(((p[i + 2] - p[i + 1]) / (lm[i + 2] - lm[i + 1])) * lumen() + (p[i + 1] - (p[i + 2] - p[i + 1]) / (lm[i + 2] - lm[i + 1]) * lm[i + 1]));
-                } else if (i == p.length - 1) {
-                    System.out.println("a = " + (p[i] - p[i-1]) / (lm[i] - lm[i-1]) + " , b = " + (p[i] - ((p[i + 1] - p[i]) / (lm[i + 1] - lm[i])) * lm[i]));
-                    equwat = (int) Math.round(((p[i] - p[i-1]) / (lm[i] - lm[i-1])) * lumen() + (p[i] - (p[i + 1] - p[i]) / (lm[i + 1] - lm[i]) * lm[i]));
+                } else if (i == p.length - 2) {
+                    equwat = (int) Math.round(((p[i] - p[i - 1]) / (lm[i] - lm[i - 1])) * lumen() + (p[i - 1] - (p[i] - p[i - 1]) / (lm[i] - lm[i-1]) * lm[i - 1]));
                 } else {
-                    System.out.println("a = " + (p[i + 1] - p[i]) / (lm[i + 1] - lm[i]) + " , b = " + (p[i] - ((p[i + 1] - p[i]) / (lm[i + 1] - lm[i])) * lm[i]));
                     equwat = (int) Math.round(((p[i + 1] - p[i]) / (lm[i + 1] - lm[i])) * lumen() + (p[i] - (p[i + 1] - p[i]) / (lm[i + 1] - lm[i]) * lm[i]));
                 }
             }
