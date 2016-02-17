@@ -1,3 +1,5 @@
+package calculator;
+
 
 class Table8 {
 //    LED Lamp beam angle       | Luminous flux multiplication factor
