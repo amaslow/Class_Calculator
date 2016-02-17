@@ -862,21 +862,23 @@ public class CCalculator extends javax.swing.JFrame {
     }
 
     public void PAR16(double corrFactor) {
-        double[] p = {0, 20, 25, 35, 50, 10000};
-        double[] lm = {0, 90 * corrFactor, 125 * corrFactor, 200 * corrFactor, 300 * corrFactor, 10000};
+        double[] p = {0, 20, 25, 35, 50, 1000000};
+        double[] lm = {0, 90 * corrFactor, 125 * corrFactor, 200 * corrFactor, 300 * corrFactor, 1000000};
+        equivalentDir(p, lm);
+    }
 
+    private void equivalentDir(double[] p, double[] lm) {
         for (int i = 0; i < p.length; i += 1) {
             if (lumen() >= lm[i] && lumen() < lm[i + 1]) {
                 if (i == 0) {
                     equwat = (int) Math.round(((p[i + 2] - p[i + 1]) / (lm[i + 2] - lm[i + 1])) * lumen() + (p[i + 1] - (p[i + 2] - p[i + 1]) / (lm[i + 2] - lm[i + 1]) * lm[i + 1]));
                 } else if (i == p.length - 2) {
-                    equwat = (int) Math.round(((p[i] - p[i - 1]) / (lm[i] - lm[i - 1])) * lumen() + (p[i - 1] - (p[i] - p[i - 1]) / (lm[i] - lm[i-1]) * lm[i - 1]));
+                    equwat = (int) Math.round(((p[i] - p[i - 1]) / (lm[i] - lm[i - 1])) * lumen() + (p[i - 1] - (p[i] - p[i - 1]) / (lm[i] - lm[i - 1]) * lm[i - 1]));
                 } else {
                     equwat = (int) Math.round(((p[i + 1] - p[i]) / (lm[i + 1] - lm[i])) * lumen() + (p[i] - (p[i + 1] - p[i]) / (lm[i + 1] - lm[i]) * lm[i]));
                 }
             }
         }
-
         EquLabel1.setText(equwat + " W");
     }
 }
