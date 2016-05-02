@@ -70,6 +70,16 @@ public class CCalculator extends javax.swing.JFrame {
         EeiLabel = new javax.swing.JLabel();
         EquLabel = new javax.swing.JLabel();
         EquLabel1 = new javax.swing.JLabel();
+        specialPurposejPanel = new javax.swing.JPanel();
+        specialPurposejLabel = new javax.swing.JLabel();
+        coordinatesjLabel = new javax.swing.JLabel();
+        xjLabel = new javax.swing.JLabel();
+        xjFormattedTextField = new javax.swing.JFormattedTextField();
+        xResultjLabel = new javax.swing.JLabel();
+        yjLabel = new javax.swing.JLabel();
+        yjFormattedTextField = new javax.swing.JFormattedTextField();
+        yResultjLabel = new javax.swing.JLabel();
+        resultjLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Class Calculator  (UE) 874/2012");
@@ -77,7 +87,7 @@ public class CCalculator extends javax.swing.JFrame {
         setBounds(new java.awt.Rectangle(200, 200, 0, 0));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setIconImage(Toolkit.getDefaultToolkit().getImage("eei.jpg"));
-        setPreferredSize(new java.awt.Dimension(485, 520));
+        setPreferredSize(new java.awt.Dimension(485, 610));
         setResizable(false);
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
@@ -270,7 +280,6 @@ public class CCalculator extends javax.swing.JFrame {
         dirRadioButton.setBackground(new java.awt.Color(199, 236, 255));
         dirbuttonGroup.add(dirRadioButton);
         dirRadioButton.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        dirRadioButton.setSelected(true);
         dirRadioButton.setText("directional lamps");
         dirRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -401,6 +410,56 @@ public class CCalculator extends javax.swing.JFrame {
         outputPanel.add(EquLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(355, 70, -1, -1));
 
         getContentPane().add(outputPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 460, 100));
+
+        specialPurposejPanel.setBackground(new java.awt.Color(199, 236, 255));
+        specialPurposejPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        specialPurposejPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        specialPurposejLabel.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        specialPurposejLabel.setText("Special purpose:");
+        specialPurposejPanel.add(specialPurposejLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 5, -1, -1));
+
+        coordinatesjLabel.setText("Chromaticity coordinates:");
+        specialPurposejPanel.add(coordinatesjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 25, -1, -1));
+
+        xjLabel.setText("x:");
+        xjLabel.setPreferredSize(new java.awt.Dimension(10, 20));
+        specialPurposejPanel.add(xjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 15, -1, -1));
+
+        xjFormattedTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#.####"))));
+        xjFormattedTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                xjFormattedTextFieldActionPerformed(evt);
+            }
+        });
+        xjFormattedTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                xjFormattedTextFieldKeyPressed(evt);
+            }
+        });
+        specialPurposejPanel.add(xjFormattedTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 15, 50, -1));
+        specialPurposejPanel.add(xResultjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 15, -1, 20));
+
+        yjLabel.setText("y:");
+        yjLabel.setPreferredSize(new java.awt.Dimension(10, 20));
+        specialPurposejPanel.add(yjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 35, -1, -1));
+
+        yjFormattedTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#.####"))));
+        yjFormattedTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                yjFormattedTextFieldActionPerformed(evt);
+            }
+        });
+        yjFormattedTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                yjFormattedTextFieldKeyPressed(evt);
+            }
+        });
+        specialPurposejPanel.add(yjFormattedTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 35, 50, -1));
+        specialPurposejPanel.add(yResultjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 35, -1, 20));
+        specialPurposejPanel.add(resultjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, -1, -1));
+
+        getContentPane().add(specialPurposejPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 490, 460, 80));
 
         getAccessibleContext().setAccessibleDescription("Cable Calculator");
 
@@ -554,6 +613,28 @@ public class CCalculator extends javax.swing.JFrame {
         Calculation(1);
     }//GEN-LAST:event_shapeComboBoxActionPerformed
 
+    private void xjFormattedTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_xjFormattedTextFieldKeyPressed
+        xjFormattedTextField.setText(xjFormattedTextField.getText().replace(",", "."));
+        xjFormattedTextField.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                xjFormattedTextField.transferFocus();
+            }
+        });
+        SpecialPurpose();
+    }//GEN-LAST:event_xjFormattedTextFieldKeyPressed
+
+    private void yjFormattedTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_yjFormattedTextFieldKeyPressed
+        yjFormattedTextField.setText(yjFormattedTextField.getText().replace(",", "."));
+    }//GEN-LAST:event_yjFormattedTextFieldKeyPressed
+
+    private void yjFormattedTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yjFormattedTextFieldActionPerformed
+        SpecialPurpose();
+    }//GEN-LAST:event_yjFormattedTextFieldActionPerformed
+
+    private void xjFormattedTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xjFormattedTextFieldActionPerformed
+        SpecialPurpose();
+    }//GEN-LAST:event_xjFormattedTextFieldActionPerformed
+
 //    double llmf() {
 //        double llmfValue = Double.parseDouble(llmfFormattedTextField.getText().replaceAll("\\s", ""));
 //        return llmfValue;
@@ -587,6 +668,7 @@ public class CCalculator extends javax.swing.JFrame {
     private javax.swing.JPanel angleShapeLlmfPanel;
     private javax.swing.JLabel classLabel;
     private javax.swing.JPanel controlGearPanel;
+    private javax.swing.JLabel coordinatesjLabel;
     private javax.swing.JPanel dirNondirjPanel;
     private javax.swing.JRadioButton dirRadioButton;
     private javax.swing.ButtonGroup dirbuttonGroup;
@@ -605,10 +687,19 @@ public class CCalculator extends javax.swing.JFrame {
     private javax.swing.ButtonGroup pcorbuttonGroup;
     private javax.swing.JLabel pratedLabel;
     private javax.swing.JTextField pratedTextField;
+    private javax.swing.JLabel resultjLabel;
     private javax.swing.JComboBox shapeComboBox;
     private javax.swing.JLabel shapeLabel;
+    private javax.swing.JLabel specialPurposejLabel;
+    private javax.swing.JPanel specialPurposejPanel;
     private javax.swing.JPanel wattageLumenPanel;
+    private javax.swing.JLabel xResultjLabel;
+    private javax.swing.JFormattedTextField xjFormattedTextField;
+    private javax.swing.JLabel xjLabel;
+    private javax.swing.JLabel yResultjLabel;
     private javax.swing.JRadioButton yesRadioButton;
+    private javax.swing.JFormattedTextField yjFormattedTextField;
+    private javax.swing.JLabel yjLabel;
     // End of variables declaration//GEN-END:variables
 
     public double lumen() {
@@ -727,7 +818,7 @@ public class CCalculator extends javax.swing.JFrame {
                     nDirClass(eei);
                 }
             } else {
-                EquLabel.setText("Claimed equivalent lamp power:");
+                EquLabel.setText("Claimed equivalent lamp power: ");
                 double corrfactorLED = 1.00;
                 double corrfactor = 1.00;
                 int beamAngle = Integer.parseInt(angleFormattedTextField.getText().replaceAll("\\s", ""));
@@ -956,5 +1047,63 @@ public class CCalculator extends javax.swing.JFrame {
         double[] p = {0, 100, 150, 1000000};
         double[] lm = {0, 580 * corrFactor, 1000 * corrFactor, 1000000};
         equivalentDir(p, lm);
+    }
+
+    private void SpecialPurpose() {
+        int ax = 0;
+        int ay = 0;
+        if (isDouble(xjFormattedTextField.getText())) {
+            double x = Double.parseDouble(xjFormattedTextField.getText());
+            if (x >= 0.270 && x <= 0.530) {
+                xResultjLabel.setForeground(Color.red);
+                xResultjLabel.setText("0.270  ≤ x ≤ 0.530");
+                ax = 1;
+            } else if (x < 0.270) {
+                xResultjLabel.setForeground(new Color(0, 102, 0));
+                xResultjLabel.setText("x < 0.270");
+            } else if (x > 0.530) {
+                xResultjLabel.setForeground(new Color(0, 102, 0));
+                xResultjLabel.setText("x > 0.530");
+            }
+            double minY = Math.round((-2.3172 * Math.pow(x, 2) + (2.3653 * x) - 0.2199) * 10000.0) / 10000.0;
+            double maxY = Math.round((-2.3172 * Math.pow(x, 2) + (2.3653 * x) - 0.1595) * 10000.0) / 10000.0;
+            if (isDouble(yjFormattedTextField.getText())) {
+                double y = Double.parseDouble(yjFormattedTextField.getText());
+                if (y >= minY && y <= maxY) {
+                    yResultjLabel.setForeground(Color.red);
+                    yResultjLabel.setText(minY + "  ≤ y ≤ " + maxY);
+                    ay = 1;
+                } else if (y < minY) {
+                    yResultjLabel.setForeground(new Color(0, 102, 0));
+                    yResultjLabel.setText("y < " + minY);
+                } else if (y > maxY) {
+                    yResultjLabel.setForeground(new Color(0, 102, 0));
+                    yResultjLabel.setText("y > " + maxY);
+                }
+            } else {
+                yResultjLabel.setForeground(Color.red);
+                yResultjLabel.setText("Type correct value in y");
+                ay = 1;
+            }
+        } else {
+            xResultjLabel.setForeground(Color.red);
+            xResultjLabel.setText("Type correct value in x");
+            ax = 1;
+        }
+        if (ax == 0 && ay == 0) {
+            resultjLabel.setForeground(new Color(0, 102, 0));
+            resultjLabel.setText("Not suitable for household room illumination");
+        } else {
+            resultjLabel.setText(null);
+        }
+    }
+
+    boolean isDouble(String str) {
+        try {
+            Double.parseDouble(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 }
