@@ -13,7 +13,7 @@ import java.text.NumberFormat;
 public class CCalculator extends javax.swing.JFrame {
 
     int prated;
-    int equwat = 0;
+    double equwat = 0;
 
     public CCalculator() {
 
@@ -736,61 +736,61 @@ public class CCalculator extends javax.swing.JFrame {
 
                 if (LEDRadioButton.isSelected()) {
                     if (lumen < 136) {
-                        equwat = (int) Math.round(0.1102941 * lumen);
+                        equwat = Math.round(0.1102941 * lumen * 100) / 100.00;
                     } else if (lumen >= 136 && lumen < 249) {
-                        equwat = (int) Math.round(0.0884956 * lumen + 2.9646018);
+                        equwat = Math.round((0.0884956 * lumen + 2.9646018) * 100) / 100.00;
                     } else if (lumen >= 249 && lumen < 470) {
-                        equwat = (int) Math.round(0.0678733 * lumen + 8.0995475);
+                        equwat = Math.round((0.0678733 * lumen + 8.0995475) * 100) / 100.00;
                     } else if (lumen >= 470 && lumen < 806) {
-                        equwat = (int) Math.round(0.0595238 * lumen + 12.02381);
+                        equwat = Math.round((0.0595238 * lumen + 12.02381) * 100) / 100.00;
                     } else if (lumen >= 806 && lumen < 1055) {
-                        equwat = (int) Math.round(0.060241 * lumen + 11.445783);
+                        equwat = Math.round((0.060241 * lumen + 11.445783) * 100) / 100.00;
                     } else if (lumen >= 1055 && lumen < 1521) {
-                        equwat = (int) Math.round(0.0536481 * lumen + 18.401288);
+                        equwat = Math.round((0.0536481 * lumen + 18.401288) * 100) / 100.00;
                     } else if (lumen >= 1521 && lumen < 2452) {
-                        equwat = (int) Math.round(0.0537057 * lumen + 18.313641);
+                        equwat = Math.round((0.0537057 * lumen + 18.313641) * 100) / 100.00;
                     } else if (lumen >= 2452) {
-                        equwat = (int) Math.round(0.05 * lumen + 27.4);
+                        equwat = Math.round((0.05 * lumen + 27.4) * 100) / 100.00;
                     }
-                    EquLabel1.setText(Integer.toString(equwat) + " W");
+                    EquLabel1.setText(Double.toString(equwat) + " W");
                 } else if (HalogenRadioButton.isSelected()) {
                     if (lumen < 119) {
-                        equwat = (int) Math.round(0.12605 * lumen);
+                        equwat = Math.round(0.12605 * lumen * 100) / 100.00;
                     } else if (lumen >= 119 && lumen < 217) {
-                        equwat = (int) Math.round(0.102041 * lumen + 2.857143);
+                        equwat = Math.round((0.102041 * lumen + 2.857143) * 100) / 100.00;
                     } else if (lumen >= 217 && lumen < 410) {
-                        equwat = (int) Math.round(0.07772 * lumen + 8.134715);
+                        equwat = Math.round((0.07772 * lumen + 8.134715) * 100) / 100.00;
                     } else if (lumen >= 410 && lumen < 702) {
-                        equwat = (int) Math.round(0.068493 * lumen + 11.91781);
+                        equwat = Math.round((0.068493 * lumen + 11.91781) * 100) / 100.00;
                     } else if (lumen >= 702 && lumen < 920) {
-                        equwat = (int) Math.round(0.068807 * lumen + 11.69725);
+                        equwat = Math.round((0.068807 * lumen + 11.69725) * 100) / 100.00;
                     } else if (lumen >= 920 && lumen < 1326) {
-                        equwat = (int) Math.round(0.061576 * lumen + 18.34975);
+                        equwat = Math.round((0.061576 * lumen + 18.34975) * 100) / 100.00;
                     } else if (lumen >= 1326 && lumen < 2137) {
-                        equwat = (int) Math.round(0.061652 * lumen + 18.24908);
+                        equwat = Math.round((0.061652 * lumen + 18.24908) * 100) / 100.00;
                     } else if (lumen >= 2137) {
-                        equwat = (int) Math.round(0.057339 * lumen + 27.4656);
+                        equwat = Math.round((0.057339 * lumen + 27.4656) * 100) / 100.00;
                     }
-                    EquLabel1.setText(Integer.toString(equwat) + " W");
+                    EquLabel1.setText(Double.toString(equwat) + " W");
                 } else if (CFLRadioButton.isSelected()) {
                     if (lumen < 125) {
-                        equwat = (int) Math.round(0.12 * lumen);
+                        equwat = Math.round(0.12 * lumen * 100) / 100.00;
                     } else if (lumen >= 125 && lumen < 229) {
-                        equwat = (int) Math.round(0.096154 * lumen + 2.980769);
+                        equwat = Math.round((0.096154 * lumen + 2.980769) * 100) / 100.00;
                     } else if (lumen >= 229 && lumen < 432) {
-                        equwat = (int) Math.round(0.073892 * lumen + 8.078818);
+                        equwat = Math.round((0.073892 * lumen + 8.078818) * 100) / 100.00;
                     } else if (lumen >= 432 && lumen < 741) {
-                        equwat = (int) Math.round(0.064725 * lumen + 12.03883);
+                        equwat = Math.round((0.064725 * lumen + 12.03883) * 100) / 100.00;
                     } else if (lumen >= 741 && lumen < 970) {
-                        equwat = (int) Math.round(0.065502 * lumen + 11.46288);
+                        equwat = Math.round((0.065502 * lumen + 11.46288) * 100) / 100.00;
                     } else if (lumen >= 970 && lumen < 1398) {
-                        equwat = (int) Math.round(0.058411 * lumen + 18.34112);
+                        equwat = Math.round((0.058411 * lumen + 18.34112) * 100) / 100.00;
                     } else if (lumen >= 1398 && lumen < 2253) {
-                        equwat = (int) Math.round(0.05848 * lumen + 18.24561);
+                        equwat = Math.round((0.05848 * lumen + 18.24561) * 100) / 100.00;
                     } else if (lumen >= 2253) {
-                        equwat = (int) Math.round(0.054407 * lumen + 27.42111);
+                        equwat = Math.round((0.054407 * lumen + 27.42111) * 100) / 100.00;
                     }
-                    EquLabel1.setText(Integer.toString(equwat) + " W");
+                    EquLabel1.setText(Double.toString(equwat) + " W");
                 }
                 if (lumen >= 1300) {
                     double pref1 = 0.07341 * lumen;
