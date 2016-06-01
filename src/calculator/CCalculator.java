@@ -952,13 +952,17 @@ public class CCalculator extends javax.swing.JFrame {
 
     public void equivalentDir(double[] p, double[] lm) {
         for (int i = 0; i < p.length; i += 1) {
+            System.out.println(p[i] + " - " + lm[i]);
             if (lumen() >= lm[i] && lumen() < lm[i + 1]) {
                 if (i == 0) {
-                    equwat = Math.round(((p[i + 2] - p[i + 1]) / (lm[i + 2] - lm[i + 1])) * lumen() + (p[i + 1] - (p[i + 2] - p[i + 1]) / (lm[i + 2] - lm[i + 1]) * lm[i + 1]) * 100) / 100.00;
+                    equwat = Math.round((((p[i + 2] - p[i + 1]) / (lm[i + 2] - lm[i + 1])) * lumen() + (p[i + 1] - (p[i + 2] - p[i + 1]) / (lm[i + 2] - lm[i + 1]) * lm[i + 1])) * 100) / 100.00;
+                    System.out.println("1:"+equwat);
                 } else if (i == p.length - 2) {
-                    equwat = Math.round(((p[i] - p[i - 1]) / (lm[i] - lm[i - 1])) * lumen() + (p[i - 1] - (p[i] - p[i - 1]) / (lm[i] - lm[i - 1]) * lm[i - 1]) * 100) / 100.00;
+                    equwat = Math.round((((p[i] - p[i - 1]) / (lm[i] - lm[i - 1])) * lumen() + (p[i - 1] - (p[i] - p[i - 1]) / (lm[i] - lm[i - 1]) * lm[i - 1])) * 100) / 100.00;
+                    System.out.println("2: "+equwat);
                 } else {
-                    equwat = Math.round(((p[i + 1] - p[i]) / (lm[i + 1] - lm[i])) * lumen() + (p[i] - (p[i + 1] - p[i]) / (lm[i + 1] - lm[i]) * lm[i]) * 100) / 100.00;
+                    equwat = Math.round((((p[i + 1] - p[i]) / (lm[i + 1] - lm[i])) * lumen() + (p[i] - (p[i + 1] - p[i]) / (lm[i + 1] - lm[i]) * lm[i])) * 100) / 100.00;
+                    System.out.println("3: "+equwat);
                 }
             }
         }
